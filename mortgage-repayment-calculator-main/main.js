@@ -68,6 +68,25 @@ document.getElementById('calculate-btn').addEventListener('click', () => {
 
         defaultText.classList.add('hide')
         calculationsContainer.classList.add('show')
+
+        if (mortgagetype.value === 'repayment') {
+            const monthlyRate = rate / 12
+            const n = term * 12
+            monthlyPayment = (amount * monthlyRate) / (1 - Math.pow((1 + monthlyRate),-n))
+            totalRepayment - monthlyPayment * n
+        } else if (mortgagetype.value === 'interest-only') {
+            monthlyPayment = (amount * rate) / 12
+            totalRepayment = monthlyPayment * term * 12
+        }
+
+        document.getElementById('result').innerText = `$${monthlyPayment(2)}`
+        document.getElementById('term-result').innerText = `$${totalRepayment.toFixed(2)}`
+
+    } else {
+        document.getElementById('result').innerText = ''
+        document.getElementById('result').innerText = ''
+
+        defaultText.classList.remove('hide')
     }
 
 })
