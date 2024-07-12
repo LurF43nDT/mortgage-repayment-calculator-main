@@ -79,7 +79,7 @@ document.getElementById('calculate-btn').addEventListener('click', () => {
             totalRepayment = monthlyPayment * term * 12
         }
 
-        document.getElementById('result').innerText = `$${monthlyPayment(2)}`
+        document.getElementById('result').innerText = `$${monthlyPayment.toFixed(2)}`
         document.getElementById('term-result').innerText = `$${totalRepayment.toFixed(2)}`
 
     } else {
